@@ -1,0 +1,26 @@
+.logo{
+    text-decoration: none;
+    color: black;
+}
+.menuitem{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.items{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+    font-size: 1.1em;
+    align-items: center;
+    position: relative;
+    top: 4px;
+}
+.container{
+    width: 100vw;
+    height: auto;
+    margin:20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
