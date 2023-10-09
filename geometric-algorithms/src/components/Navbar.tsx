@@ -10,7 +10,7 @@ export const Navbar = () => {
                 
                 <Grid xs={4} className={styles.first}>
                     <Link to='/' className={styles.logo}>
-                        <img src="./images/logo.png" alt="icon"/>
+                        <img className={styles.logoimg} src="./images/logo.png" alt="icon"/>
                         <h2> Geo Algorithmics</h2>
                     </Link>
                 </Grid>
