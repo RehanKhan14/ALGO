@@ -1,13 +1,9 @@
 import { Grid,Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./css/Navbar.module.css";
-import { useEffect } from "react";
 
 export const Navbar = () => {
     const navigate=useNavigate();
-    useEffect(()=>{
-        document.title="Geo Algorithmics";
-    },[])
     return (
         <div className={styles.container}>
            <Grid container spacing={1}>

@@ -1,7 +1,7 @@
 .container{
     width: auto;
     height: auto;
-    margin: 50px 40px;
+    margin: 3vw 2vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +15,7 @@
     justify-content: center;
     line-height:30px;
     >p{
-        max-width: 300px;
+        max-width: 16vw;
     }
 }
 .imgContainer{
@@ -23,8 +23,8 @@
     align-items: center;
     justify-content: space-evenly;
     >img{
-        width: 400px;
-        height: 250px;
+        width: 21vw;
+        height: 13vw;
     }
 }
 
