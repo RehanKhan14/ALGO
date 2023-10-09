@@ -5,11 +5,11 @@
     .logo{
         display: flex;
         align-items: center;
-        margin-left: 90px;
+        margin-left: 5vw;
         text-decoration: none;
         color: black;
         img{
-            width: 50px;
+            width: 40px;
             justify-self: center;
             align-items: center;
             
@@ -17,7 +17,6 @@
     }
 }
 .menuitem{
-    padding-right: 20px;
     align-items: center;
 }
 .items{
@@ -35,15 +34,14 @@
 .items:hover{
     text-decoration: underline;
     text-decoration-line: overline;
-    text-decoration-color:blue ;
+    text-decoration-color:#1976d2 ;
     text-decoration-thickness: 2px;
 }
 .third{
-    height:100%;
     display: flex;
     justify-content: flex-end;
     .contact{
-        margin-right: 90px;
+        margin-right: 6vw;
         margin-top: 6px;
     }
 }
