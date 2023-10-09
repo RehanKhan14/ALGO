@@ -1,6 +1,6 @@
 import { Grid, Divider, Button } from "@mui/material";
 import style from "./css/Hero.module.css"
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface algo{
     heading:string;

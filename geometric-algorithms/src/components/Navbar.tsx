@@ -1,29 +1,37 @@
-import { Grid,Link } from "@mui/material";
-import { Link as RLink } from "react-router-dom";
+import { Grid,Button } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./css/Navbar.module.css";
+import { useEffect } from "react";
 
 export const Navbar = () => {
+    const navigate=useNavigate();
+    useEffect(()=>{
+        document.title="Geo Algorithmics";
+    },[])
     return (
         <div className={styles.container}>
            <Grid container spacing={1}>
                 
-                <Grid item xs={6} md={4}>
-                    <RLink to='/' className={styles.logo}><h2> Geometric Algorithms</h2></RLink>
+                <Grid xs={4} className={styles.first}>
+                    <Link to='/' className={styles.logo}>
+                        <img src="./images/logo.png" alt="icon"/>
+                        <h2> Geo Algorithmics</h2>
+                    </Link>
                 </Grid>
-                <Grid item xs={6} md={8}>
+                <Grid xs={4}>
                     <div className={styles.menuitems}>
-                         <Link underline="hover" color={"Blue"}>
-                            <RLink to='/closest-pair' className={styles.items}>Closest Pair </RLink>
-                        </Link>
-                        <Link underline="hover" color={"Blue"}>
-                            <RLink to='/convex-hull' className={styles.items}>Convex Hull </RLink>
-                        </Link>
-                        <Link underline="hover" color={"Blue"}>
-                            <RLink to='/voronoi-diagram' className={styles.items}>Voronoi Diagram </RLink>
-                        </Link>
+                            <Link to='/closest-pair' className={styles.items}>Closest Pair </Link>
+                            <Link to='/convex-hull' className={styles.items}>Convex Hull </Link>
+                            <Link to='/voronoi-diagram' className={styles.items}>Voronoi Diagram </Link>
                     </div>
                 </Grid>
+                <Grid xs={4} className={styles.third}>
+                    <Button variant="outlined" className={styles.contact} onClick={()=>{
+                        navigate("/contact");
+                    }}>Contact Us</Button>
+                </Grid>
             </Grid> 
+                        
         </div>
     );
 }

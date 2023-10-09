@@ -1,5 +1,5 @@
 .container{
-    width: 100%;
+    width: auto;
     height: auto;
     margin: 50px 40px;
     display: flex;
@@ -8,9 +8,7 @@
 }
 .textContainer{
     height: 100%;
-    /* padding-left: 50px; */
     display: flex;
-    /* text-decoration:  ; */
     text-align: center;
     flex-direction: column;
     align-items: center;
@@ -22,7 +20,6 @@
 }
 .imgContainer{
     display: flex;
-    margin-right: 80px;
     align-items: center;
     justify-content: space-evenly;
     >img{
@@ -34,6 +31,4 @@
 .endline{
     margin-top: 10px;
     width: 18%;
-    /* text-align: right; */
-    /* justify-self: center; */
 }

@@ -1,24 +1,52 @@
-.logo{
-    text-decoration: none;
-    color: black;
+.first{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .logo{
+        display: flex;
+        align-items: center;
+        margin-left: 90px;
+        text-decoration: none;
+        color: black;
+        img{
+            width: 50px;
+            justify-self: center;
+            align-items: center;
+        }
+    }
 }
 .menuitem{
-    width: 100%;
-    height: 100%;
-    display: flex;
+    padding-right: 20px;
+    align-items: center;
 }
 .items{
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
     text-decoration: none;
     color: black;
     margin: 10px;
     font-size: 1.1em;
     align-items: center;
     position: relative;
-    top: 4px;
+    top: 6px;
+}
+.items:hover{
+    text-decoration: underline;
+    text-decoration-line: overline;
+    text-decoration-color:blue ;
+    text-decoration-thickness: 2px;
+}
+.third{
+    height:100%;
+    display: flex;
+    justify-content: flex-end;
+    .contact{
+        margin-right: 90px;
+        margin-top: 6px;
+    }
 }
 .container{
-    width: 100vw;
-    height: auto;
     margin:20px;
     text-align: center;
     justify-content: center;
