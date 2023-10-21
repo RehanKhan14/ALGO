@@ -1,5 +1,5 @@
 import { Grid, Divider, Button } from "@mui/material";
-import style from "./css/Hero.module.css"
+import style from "./css/Hero.module.scss"
 import { useNavigate } from "react-router-dom";
 
 interface algo{

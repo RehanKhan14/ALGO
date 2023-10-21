@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import './App.css';
+import './App.scss';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
-import { ClosestPair } from './pages/ClosestPair';
+import { Intersection } from './pages/Intersection';
 import { ConvexHull } from './pages/ConvexHull';
-import { VoronoiDiagram } from './pages/VoronoiDiagram';
 import { Contact } from './components/Contact';
 
 function App() {
@@ -18,9 +17,8 @@ function App() {
         <Navbar/>
         <Routes> 
           <Route path="/" element={<Home/>}/>
-          <Route path="/closest-pair" element={<ClosestPair/>}/>
+          <Route path="/intersection" element={<Intersection/>}/>
           <Route path="/convex-hull" element={<ConvexHull/>}/>
-          <Route path="/voronoi-diagram" element={<VoronoiDiagram/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="*" element={<h1>404 Not Found</h1>}/>
         </Routes>

@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import style from "./css/Contact.module.css"
+import style from "./css/Contact.module.scss"
 // import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 

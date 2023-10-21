@@ -1,6 +1,6 @@
 import { Grid,Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./css/Navbar.module.css";
+import styles from "./css/Navbar.module.scss";
 
 export const Navbar = () => {
     const navigate=useNavigate();
@@ -14,18 +14,17 @@ export const Navbar = () => {
                         <h2> Geo Algorithmics</h2>
                     </Link>
                 </Grid>
-                <Grid xs={4}>
+                <Grid xs={8} className={styles.second}>
                     <div className={styles.menuitems}>
-                            <Link to='/closest-pair' className={styles.items}>Closest Pair </Link>
+                            <Link to='/intersection' className={styles.items}>Intersection </Link>
                             <Link to='/convex-hull' className={styles.items}>Convex Hull </Link>
-                            <Link to='/voronoi-diagram' className={styles.items}>Voronoi Diagram </Link>
-                    </div>
-                </Grid>
-                <Grid xs={4} className={styles.third}>
                     <Button variant="outlined" className={styles.contact} onClick={()=>{
                         navigate("/contact");
                     }}>Contact Us</Button>
+                    </div>
                 </Grid>
+                {/* <Grid xs={2} className={styles.third}>
+                </Grid> */}
             </Grid> 
                         
         </div>

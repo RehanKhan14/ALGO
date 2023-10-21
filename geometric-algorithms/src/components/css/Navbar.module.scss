@@ -8,7 +8,20 @@
         margin-left: 5vw;
         text-decoration: none;
         color: black;
-       
+        
+    }
+}
+.second{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    // display: flex;
+    // justify-content: center;
+    .contact{
+        margin-left: 1vw;
+        margin-right: 3vw;
+        margin-top: 6px;
     }
 }
 .logoimg{
@@ -39,12 +52,6 @@
     text-decoration-thickness: 2px;
 }
 .third{
-    display: flex;
-    justify-content: flex-end;
-    .contact{
-        margin-right: 6vw;
-        margin-top: 6px;
-    }
 }
 .container{
     margin:20px;
