@@ -5,16 +5,19 @@
     margin: 30px 0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .card{
+    
+    padding: 2vw;
     border: 1px solid black;
     box-shadow: 10px 10px rgb(98, 97, 97);
     
     border-radius: 20px;
-    height: 300px;
+    height: 350px;
     img{
         width: 10vw;
+        height: 11vw;
         border-radius: 20px;
     }
 }
