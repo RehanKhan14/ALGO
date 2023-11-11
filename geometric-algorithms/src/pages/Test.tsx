@@ -1,4 +1,5 @@
 import { HullGraph } from "../components/Graph/HullGraph";
+import { LineGraph } from "../components/Graph/LineGraph";
 import { ScatterGraph } from "../components/Graph/ScatterGraph";
 
 export const Test = () =>{
@@ -23,8 +24,11 @@ export const Test = () =>{
             <h1>Scatter</h1>
             <ScatterGraph data={data} width={null} height={null}/>
          
-            <h1>Line</h1>
+            <h1>Hull</h1>
             <HullGraph dataScatter={data} dataLine={dataLine} width={null} height={null}/>
+
+            <h1>Line</h1>
+            <LineGraph data1={[data[0],data[1]]} data2={[dataLine[0],dataLine[1]]} width={null} height={null}/>
         </>
     );
 }
