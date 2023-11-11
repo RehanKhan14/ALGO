@@ -1,5 +1,5 @@
 import { CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, ScatterChart, Scatter, ReferenceLine, Legend } from 'recharts';
-import { getDomain } from './getDomain';
+import { getDomain } from '../../hooks/getDomain';
 
 export const ScatterGraph = (props) =>{
     const domain=getDomain(props.data);
@@ -7,7 +7,7 @@ export const ScatterGraph = (props) =>{
     return (
       <ResponsiveContainer width={props.width==null?'100%':props.width} aspect={props.height==null?3:props.height}>
         <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-          <CartesianGrid name='Real Time Graph'/>
+          <CartesianGrid name='Scatter Graph'/>
           <XAxis type="number" dataKey="x" name="x" domain={[domain.minX-10,domain.maxX+10]} tickCount={10} />
           <YAxis type="number" dataKey="y" name="y" domain={[domain.minY-10,domain.maxY+10]} tickCount={10}/>
           <Tooltip  cursor={{strokeDasharray:'3 3',color:'green'}} payload={[{name:'Coordintae'}]} />
