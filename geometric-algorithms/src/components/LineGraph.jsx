@@ -1,45 +1,21 @@
 import {ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import { getDomain } from './getDomain';
 
 export const LineGraph = (props) =>{
-    const data = [
-      {name:"A", x: 100, y: 200 },
-      { x: 120, y: 100 },
-      { x: 170, y: 300 },
-      { x: 140, y: 250},
-      { x: 150, y: 400},
-      { x: 110, y: 280 },
-      {x: -1,y:-200},
-      { x: 100, y: 200 },
-    ]; 
-
-    const data02 = [
-  { x: 30, y: 20 },
-  { x: 50, y: 180 },
-  { x: 75, y: 240 },
-  { x: 100, y: 100 },
-  { x: 120, y: 190 },
-];
+    const domain = getDomain([...props.dataScatter,...props.dataLine]); //for graph axis
 
     return (
-        <>
-                <ResponsiveContainer width="100%" height={400}>
-        <ScatterChart
-          margin={{
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20,
-          }}
-        >
-          <CartesianGrid />
-          <XAxis type="number" dataKey="x" name="x"/>
-          <YAxis type="number" dataKey="y" name="y"/>
+      <ResponsiveContainer width={props.width==null?'100%':props.width}  aspect={props.height==null?3:props.height}>
+        <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+          <CartesianGrid name={props.name==null?"Convex Hull":props.name}/>
+          <XAxis type="number" dataKey="x" name="x" domain={[domain.minX-10,domain.maxX+10]}/>
+          <YAxis type="number" dataKey="y" name="y" domain={[domain.minY-10,domain.maxY+10]}/>
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
           <Legend />
-          <Scatter name="Line" data={data} fill="blue" line shape="diamond" />
-          <Scatter name="Points" data={data02} fill="red" shape="dot" />
+          <Scatter name="Line" data={props.dataLine} fill="blue" line shape="diamond" />
+          <Scatter name="Points" data={props.dataScatter} fill="red" shape="dot" />
         </ScatterChart>
       </ResponsiveContainer>
-        </>
+        
     );
 }
