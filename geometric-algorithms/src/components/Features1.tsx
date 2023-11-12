@@ -1,5 +1,6 @@
 import { Icon } from "@mui/material"
-import style from "./css/CoverSection.module.sass"
+import style from "./css/Features1.module.sass"
+import ArticleIcon from '@mui/icons-material/Article';
 interface Props{
     title:string,
     subtitle:string,
@@ -21,11 +22,11 @@ export const Features1 = (props:Props) =>{
                 <div>
                     {props.subsections.map((item:SubSection)=>{
                         return (
-                            <div>
-                                <div>
-                                    ICON
+                            <div className={style.main}>
+                                <div className={style.icon}>
+                                    <ArticleIcon/>
                                 </div>
-                                <div>
+                                <div className={style.test}>
                                     <h5>{item.heading}</h5>
                                     <p>{item.para}</p>
                                 </div>

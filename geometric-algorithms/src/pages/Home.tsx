@@ -19,10 +19,10 @@ export const Home = () =>{
             <Features1 
                 title="Convex Hull"
                 subtitle="Some subtitle type text"
-                subsections={[  {heading:"Brute Fore",para:"Brute force text"},
-                                {heading:"Jarvis March",para:"Some CCW text"},
-                                {heading:"Graham scan",para:"Brute force text"},
-                                {heading:"Quick Elimination",para:"Brute force text"},
+                subsections={[  {heading:"Brute Fore",para:"The brute force approach for computing the convex hull involves examining all possible combinations of points in a given set to determine the subset that forms the convex hull. This method has a time complexity of O(n^3), making it inefficient for large datasets, as it systematically checks every triplet of points to identify the convex hull"},
+                                {heading:"Jarvis March",para:"Jarvis March, or the gift wrapping algorithm, efficiently computes the convex hull by iteratively selecting points with the most counterclockwise angle. With a time complexity of O(nh), it is more practical for large datasets compared to brute force methods."},
+                                {heading:"Graham scan",para:"Graham Scan efficiently computes the convex hull by sorting points based on polar angles and constructing the hull through a linear scan. With a time complexity of O(n log n), it is a faster alternative to brute force for large datasets."},
+                                {heading:"Quick Elimination",para:"QuickHull, a divide-and-conquer algorithm, efficiently computes the convex hull by recursively eliminating interior points. With an average-case time complexity of O(n log n), it performs well on large datasets."},
                                 {heading:"Research Paper",para:"Brute force text"},
                                 ]}
             />
