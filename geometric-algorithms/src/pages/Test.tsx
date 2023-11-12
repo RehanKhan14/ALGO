@@ -1,7 +1,9 @@
 import { HullGraph } from "../components/Graph/HullGraph";
 import { LineGraph } from "../components/Graph/LineGraph";
 import { ScatterGraph } from "../components/Graph/ScatterGraph";
-import { InputLine } from "../components/InputLine";
+import { InputLine } from "../components/Input/InputLine";
+import { InputHull } from "../components/Input/InputHull";
+
 
 export const Test = () =>{
     const data = [
@@ -32,7 +34,8 @@ export const Test = () =>{
             <LineGraph data1={[data[0],data[1]]} data2={[dataLine[0],dataLine[1]]} width={null} height={null}/>
 
             <h1></h1> */}
-            <InputLine/>
+            {/* <InputLine/> */}
+            <InputHull/>
         </>
     );
 }

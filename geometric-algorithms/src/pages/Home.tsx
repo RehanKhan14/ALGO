@@ -1,8 +1,8 @@
-import { CoverSection } from "../components/CoverSection";
-import { Features1 } from "../components/Features1";
-import { Hero } from "../components/Hero";
+import { CoverSection } from "../components/Home/CoverSection";
+import { Features1 } from "../components/Home/Features1";
+import { Hero } from "../components/Home/Hero";
 import style from "./css/Home.module.scss";
-import { SubSection } from "../components/Features1";
+import { SubSection } from "../components/Home/Features1";
 
 export const Home = () =>{
     return (
