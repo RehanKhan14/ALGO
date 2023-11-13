@@ -1,24 +1,36 @@
 import { Avatar, IconButton, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useEffect,useState } from "react";
 interface Props{
-    data:Data[]
+    // data:Data[],
+    x:number[],
+    y:number[],
+    nodeDelete:any,
 }
 
 interface Data{
     id:number,
     x:number,
-    y:number
+    y:number,
 }
-// 
 export const PointList = (props:Props) =>{
+    const [data,setData] = useState<Data[]>([]);
+    const convertData = () =>{
+        const temp:Data[]=[];
+        for(let i=0;i<props.x.length;i++){
+            temp.push({id:i,x:props.x[i],y:props.y[i]});
+        }
+        setData(temp);
+    }
+    useEffect(()=>{convertData()},[props]);
     return (
         <>
             <List>
-                {props.data.map((value:Data)=>{
+                {data.map((value:Data)=>{
                     return (
                         <ListItem secondaryAction={
-                            <IconButton edge="start" aria-label="delete" color="error" onClick={()=>{console.log("del")}}>
+                            <IconButton edge="start" aria-label="delete" color="error" onClick={()=>{props.nodeDelete(value.id);convertData()}}>
                             <DeleteIcon />
                             </IconButton>}
                         >

@@ -11,14 +11,49 @@ import { PointList } from "./PointList";
 
 export const InputHull = ()=>{
 
-    const tempData = [{id:0,x:1,y:-1},{id:1,x:10,y:9}]
+    // const tempData = [{id:0,x:1,y:-1},{id:1,x:10,y:9}]
 
-    const [disableButton, setDisableButton] = useState(true);
-    const [algo, setAlgo] = useState('Brute Force');
+    const [pointsX, setPointsX]=useState([0]);
+    const [pointsY, setPointsY]=useState([0]);
+    const [disableButton, setDisableButton] = useState(false);
+    const [algo, setAlgo] = useState('Bru');
+    const [textX, setTextX] = useState("");
+    const [textY, setTextY] = useState("");
 
-    const handleSubmit = () =>{
+    const handleDelete = (id:number) => {//for point list(child comp)
+        let tempArr=pointsX;
+        tempArr.splice(id,1);
+        setPointsX(tempArr);
+        console.log(tempArr);
+
+        tempArr=pointsY;
+        tempArr.splice(id,1); 
+        setPointsY(tempArr);
 
     }
+    const convertPointFormat=()=>{
+        
+    }
+
+
+    const inputPoint = () =>{
+        if(isNaN(textX as any)){
+            window.alert("Invalid X-Coordinate");
+            return;
+        }
+        if(isNaN(textY as any)){
+            window.alert("Invalid Y-Coordinate");
+            return;
+        }
+        // if(setPointsX.length<1){
+        //     setPointsX([Number(textX)]);
+        //     setPointsY([Number(textY)]);
+        // }
+        setPointsX(prev=>{return [...prev,Number(textX)]});
+        setPointsY(prev=>{return [...prev,Number(textY)]});
+        console.log(pointsX);
+    }
+    const handleSubmit=()=>{}
     
     return (
         <div>
@@ -30,27 +65,28 @@ export const InputHull = ()=>{
                         <TextField label="Coordinates" variant="standard"
                         sx={{ m: 1, width: '20ch' }}
                         InputProps={{ startAdornment: <InputAdornment position="start">X: </InputAdornment>, }}
-                        // onChange={(event)=>{
-                        //     editPointList('0X',event.target.value);
-                        // }}
+                        onChange={(event)=>{
+                            setTextX(event.target.value);
+                        }}
                         />
 
                         <TextField label=" " variant="standard"
                         sx={{ m: 1, width: '20ch' }}
                         InputProps={{ startAdornment: <InputAdornment position="start">Y: </InputAdornment>, }}
-                        // onChange={(event)=>{
-                        //     editPointList('0Y',event.target.value);
-                        // }}
+                        onChange={(event)=>{
+                            setTextY(event.target.value);
+                        }}
                         />
                         <br></br>
-                       <Button color="primary">Add Point</Button> 
+                       <Button color="primary" onClick={inputPoint}>Add Point</Button> 
                         
 
 
                         <InputLabel >Algorithms</InputLabel>
                         <Select id="selectAlgo" value={algo} label="Algorithm" placeholder="Chose Algorithm"
                             onChange={  event=>{setAlgo(event.target.value);
-                                                setDisableButton(false);}}>
+                                                // setDisableButton(false);
+                                                }}>
                             <MenuItem value={'Bru'}>Brute Force</MenuItem>
                             <MenuItem value={'Jar'}>Jarvis March</MenuItem>
                             <MenuItem value={'Gra'}>Graham Scan</MenuItem>
@@ -59,7 +95,7 @@ export const InputHull = ()=>{
                         </Select>
                         <Button color="success" disabled={disableButton} onSubmit={handleSubmit}>Run Algorithm</Button>
 
-                        <PointList data={tempData}/>
+                        <PointList x={pointsX} y={pointsY} nodeDelete={handleDelete}/>
                         
                     </div>
                 </Grid>
