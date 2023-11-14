@@ -35,7 +35,7 @@ export const Test = () =>{
 
             <h1></h1> */}
             {/* <InputLine/> */}
-            <InputHull/>
+            {/* <InputHull/> */}
         </>
     );
 }

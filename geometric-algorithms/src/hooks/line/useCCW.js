@@ -1,3 +1,7 @@
+// interface point{
+//     x:number,
+//     y:number
+// }
 function orientation(p, q, r) {
     const val = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
 
@@ -13,7 +17,7 @@ function onSegment(p, q, r) {
             q.y <= Math.max(p.y, r.y) && q.y >= Math.min(p.y, r.y));
 }
 
-function areLinesIntersecting(line1, line2) {
+export const AreLinesIntersecting=(line1, line2)=> {
     const p1 = line1[0];
     const q1 = line1[1];
     const p2 = line2[0];
@@ -39,8 +43,8 @@ function areLinesIntersecting(line1, line2) {
 }
 
 // Example usage:
-const line1 = [{x:0,y:0} ,{x:4,y:4}];
-const line2 = [{x:0,y:4} ,{x:4,y:0}];
+// const line1 = [{x:0,y:0} ,{x:4,y:4}];
+// const line2 = [{x:0,y:4} ,{x:4,y:0}];
 
-const result = areLinesIntersecting(line1, line2);
-console.log(result); // Output: true
+// const result = areLinesIntersecting(line1, line2);
+// console.log(result); // Output: true

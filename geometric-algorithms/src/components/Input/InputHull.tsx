@@ -1,5 +1,5 @@
 import { Grid,Button } from "@mui/material";
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import MenuItem from '@mui/material/MenuItem';
@@ -7,35 +7,47 @@ import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import { ScatterGraph } from "../Graph/ScatterGraph";
 import { PointList } from "./PointList";
+import {Data} from './PointList';
+
+interface Props{
+    runAlgo: any
+}
 
 
-export const InputHull = ()=>{
+export const InputHull = (props:Props)=>{
 
     // const tempData = [{id:0,x:1,y:-1},{id:1,x:10,y:9}]
 
-    const [pointsX, setPointsX]=useState([0]);
-    const [pointsY, setPointsY]=useState([0]);
-    const [disableButton, setDisableButton] = useState(false);
+    const [data, setData]=useState<Data[]>([]);
+    const [pointsX, setPointsX]=useState<number[]>([]);
+    const [pointsY, setPointsY]=useState<number[]>([]);
+    const [pointsInserted, setPointsInserted] = useState(false);
     const [algo, setAlgo] = useState('Bru');
     const [textX, setTextX] = useState("");
     const [textY, setTextY] = useState("");
-
-    const handleDelete = (id:number) => {//for point list(child comp)
-        let tempArr=pointsX;
-        tempArr.splice(id,1);
-        setPointsX(tempArr);
-        console.log(tempArr);
-
-        tempArr=pointsY;
-        tempArr.splice(id,1); 
-        setPointsY(tempArr);
-
-    }
+    
     const convertPointFormat=()=>{
-        
+        const temp:Data[]=[];
+        for(let i=0;i<pointsX.length;i++){
+            temp.push({id:i,x:pointsX[i],y:pointsY[i]});
+        }
+        setData(temp);
     }
-
-
+    
+    const handleDelete = (id:number) => {//for point list(child comp)
+        const tempArrX=pointsX;
+        tempArrX.splice(id,1);
+        setPointsX(tempArrX);
+        // console.log(tempArr);
+        
+        const tempArrY=pointsY;
+        tempArrY.splice(id,1); 
+        setPointsY(tempArrY);
+         
+    }
+    useEffect(convertPointFormat,[pointsX,pointsY,handleDelete]);
+    
+    
     const inputPoint = () =>{
         if(isNaN(textX as any)){
             window.alert("Invalid X-Coordinate");
@@ -45,21 +57,23 @@ export const InputHull = ()=>{
             window.alert("Invalid Y-Coordinate");
             return;
         }
-        // if(setPointsX.length<1){
-        //     setPointsX([Number(textX)]);
-        //     setPointsY([Number(textY)]);
-        // }
+        // convertPointFormat([...pointsX,Number(textX)], [...pointsY,Number(textY)]);
         setPointsX(prev=>{return [...prev,Number(textX)]});
         setPointsY(prev=>{return [...prev,Number(textY)]});
-        console.log(pointsX);
+        // console.log(pointsX);
     }
-    const handleSubmit=()=>{}
+
+    // const convertPointFormat=(arrX:number[], arrY:number[])=>{
+    
+    const handleSubmit=()=>{
+        props.runAlgo(data,algo);
+    }
     
     return (
         <div>
             <h1>Convex Hull</h1>
             <Grid container spacing={1}>
-                <Grid xs={6}>
+                <Grid xs={4}>
                     <div>
                         <h2>Enter Points</h2>
                         <TextField label="Coordinates" variant="standard"
@@ -93,16 +107,18 @@ export const InputHull = ()=>{
                             <MenuItem value={'Qck'}>Quick Elimination</MenuItem>
                             <MenuItem value={'Res'}>Research Paper</MenuItem>
                         </Select>
-                        <Button color="success" disabled={disableButton} onSubmit={handleSubmit}>Run Algorithm</Button>
+                        <Button color="success" onClick={handleSubmit}>Run Algorithm</Button>
 
                         <PointList x={pointsX} y={pointsY} nodeDelete={handleDelete}/>
                         
                     </div>
                 </Grid>
-                <Grid xs={6}>
+                <Grid xs={8}>
                     <div>
                         <h2>Realtime Graph</h2>
-                        {/* <ScatterGraph data={points} aspect={3}/> */}
+                        {data.length<1?<p>Insert Points To Display Graph</p>:
+                        <ScatterGraph data={data} aspect={3}/>
+                        }
                     </div>                 
                 </Grid>
             </Grid>

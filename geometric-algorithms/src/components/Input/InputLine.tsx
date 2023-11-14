@@ -7,13 +7,15 @@ import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import { ScatterGraph } from "../Graph/ScatterGraph";
 
+interface Props{
+    runAlgo: any
+}
 
-export const InputLine = ()=>{ 
+export const InputLine = (props:Props)=>{ 
     const [points, setPoints] = useState([{x:0,y:0}])
     const [pointsX, setPointsX] = useState([0,0,0,0])
     const [pointsY, setPointsY] = useState([0,0,0,0])
-    const [algo, setAlgo] = useState('')
-    const [disableButton, setDisableButton] = useState(true)
+    const [algo, setAlgo] = useState('CCW')
 
     const editPointList=(id:string, value:string)=>{
         let coordinate:number;
@@ -50,6 +52,8 @@ export const InputLine = ()=>{
         setPoints(temp);
     }
     const handleSubmit =() =>{
+        
+        props.runAlgo(points,algo);
     }
     
     return (
@@ -121,13 +125,12 @@ export const InputLine = ()=>{
 
                         <InputLabel >Algorithm</InputLabel>
                         <Select id="selectAlgo" value={algo} label="Algorithm" placeholder="Chose Algorithm"
-                            onChange={  event=>{setAlgo(event.target.value);
-                                                setDisableButton(false);}}>
+                            onChange={  event=>{setAlgo(event.target.value);}}>
                             <MenuItem value={'CCW'}>Counter Clock Wise</MenuItem>
                             <MenuItem value={'Sub'}>Substitution</MenuItem>
                             <MenuItem value={'Res'}>Reasearch Paper</MenuItem>
                         </Select>
-                        <Button color="success" disabled={disableButton} onSubmit={handleSubmit}>Run Intersection Algorithm</Button>
+                        <Button color="success" onClick={handleSubmit}>Run Intersection Algorithm</Button>
                         
                         
                     </div>
