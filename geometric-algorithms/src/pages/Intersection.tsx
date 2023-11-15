@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react";
 import { InputLine } from "../components/Input/InputLine";
 import { CCW } from "../components/line/CCW";
+import { Cra } from "../components/line/Cra";
 // import { AreLinesIntersecting } from "../hooks/line/useCCW";
 
 interface Points{
@@ -31,18 +32,22 @@ export const Intersection = () =>{
     //     AreLinesIntersecting(lineA,lineB);
     // },[setInput]);
 
-    const getComponent
+    const getComponent=()=>{
+        switch(algo){
+            case 'CCW':
+                return <CCW lineA={lineA} lineB={lineB}/>
+            case 'Cra':
+                return <Cra lineA={lineA} lineB={lineB}/>
+            case 'Res':
+                return <p>Research Paper</p>
+        }
+    }
 
     return (
         <>
             {/* Line Intersection */}
             {input && <InputLine runAlgo={runAlgo}/>}
-            {!input && 
-            switch(algo){
-                case 'CCW':
-                    return <CCW lineA={lineA} lineB={lineB}/>
-                }
-            }
+            {!input && getComponent()}
             {/* {algo logic} */}
         </>
     );

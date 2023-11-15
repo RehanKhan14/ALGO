@@ -1,4 +1,4 @@
-function areLinesIntersecting(line1, line2) {
+export const useAreLinesIntersecting=(line1, line2)=> {
     const x1 = line1[0].x;
     const y1 = line1[0].y;
     const x2 = line1[1].x;

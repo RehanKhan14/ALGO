@@ -1,4 +1,4 @@
-import { useAreLinesIntersecting } from "../../hooks/line/useCCW";
+import { useAreLinesIntersecting } from "../../hooks/line/cramersrule";
 import { LineGraph } from "../Graph/LineGraph";
 
 interface Props{
@@ -10,12 +10,12 @@ interface Line{
     y:number,
 }
 
-export const CCW = (props:Props) => {
+export const Cra = (props:Props) => {
     const intersecting=useAreLinesIntersecting(props.lineA,props.lineB);
     
     return (
     <>
-        <h1>Counter Clock Wise Method</h1>
+        <h1>Cramers Rule</h1>
         <p>The lines are {intersecting?" ":"not "}intersecting</p>
         <LineGraph data1={props.lineA} data2={props.lineB}/>
     </>

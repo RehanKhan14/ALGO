@@ -1,4 +1,4 @@
-import { useBruteForce } from "../../hooks/convexhull/bruteforce";
+import { useGrahamScan } from "../../hooks/convexhull/grahamscan";
 import { useSortByPolarAngle } from "../../hooks/convexhull/polarangle";
 import { HullGraph } from "../Graph/HullGraph";
 
@@ -10,13 +10,13 @@ interface Points{
     y:number,
 }
 
-export const BruteForce = (props:Props) => {
-    const convexHull=useBruteForce(props.data);
+export const GrahamScan = (props:Props) => {
+    const convexHull=useGrahamScan(props.data);
     const sorted:Points[]=useSortByPolarAngle(convexHull);
     
     return (
     <>
-        <h1>Brute Force</h1>
+        <h1>Grahm Scan</h1>
         <HullGraph dataLine={sorted} dataScatter={props.data} />
     </>
     );

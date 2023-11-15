@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react";
 import { InputHull } from "../components/Input/InputHull";
 import { BruteForce } from "../components/convex/BruteForce";
+import { GrahamScan } from "../components/convex/GrahamScan";
 interface Points{
     x:number,
     y:number
@@ -30,10 +31,24 @@ export const ConvexHull = () =>{
     useEffect(()=>{
         document.title="Geo Algorithmics | Convex Hull";
     },[])
+    const getComponent=()=>{
+        switch(algo){
+            case 'Bru':
+                return <BruteForce data={data}/>
+            case 'Jar':
+                return <p></p> 
+            case 'Gra':
+                return <GrahamScan data={data}/>  
+            case 'Qck':
+                return 
+            case 'Res':
+                return <p>Research Paper</p>
+        }
+    }
     return (
         <>
             {input && <InputHull runAlgo={runAlgo}/>}
-            {!input && <BruteForce data={data}/>}
+            {!input && getComponent()}
         </>
     );
 }

@@ -24,7 +24,7 @@
     return distanceSq(p1, p0) < distanceSq(p2, p0) ? -1 : 1;
   }
   
-  function grahamScan(points) {
+  export const useGrahamScan=(points)=> {
     const { point: p0, index } = findMinY(points);
   
     // Swap p0 with points[index]
@@ -85,17 +85,17 @@
   }
   
   // Example usage:
-  const data = [
-    {x: 100, y: 200 },
-    { x: 120, y: 100 },
-    { x: 170, y: 300 },
-    { x: 140, y: 250},
-    { x: 150, y: 400},
-    { x: 110, y: 280 },
-    {x: -1,y:-200},
-    { x: 100, y: 200 },
-  ];
+  // const data = [
+  //   {x: 100, y: 200 },
+  //   { x: 120, y: 100 },
+  //   { x: 170, y: 300 },
+  //   { x: 140, y: 250},
+  //   { x: 150, y: 400},
+  //   { x: 110, y: 280 },
+  //   {x: -1,y:-200},
+  //   { x: 100, y: 200 },
+  // ];
   
-  const convexHull = grahamScan(data);
-  console.log(convexHull);
+  // const convexHull = grahamScan(data);
+  // console.log(convexHull);
   

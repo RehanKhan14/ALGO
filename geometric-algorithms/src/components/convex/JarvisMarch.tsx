@@ -16,7 +16,7 @@ export const BruteForce = (props:Props) => {
     
     return (
     <>
-        <h1>Brute Force</h1>
+        {/* <p>The lines are {intersecting?" ":"not "}intersecting</p> */}
         <HullGraph dataLine={sorted} dataScatter={props.data} />
     </>
     );
