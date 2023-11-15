@@ -17,7 +17,7 @@ function onSegment(p, q, r) {
             q.y <= Math.max(p.y, r.y) && q.y >= Math.min(p.y, r.y));
 }
 
-export const AreLinesIntersecting=(line1, line2)=> {
+export const useAreLinesIntersecting=(line1, line2)=> {
     const p1 = line1[0];
     const q1 = line1[1];
     const p2 = line2[0];

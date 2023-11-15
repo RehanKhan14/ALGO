@@ -30,8 +30,8 @@ function areLinesIntersecting(line1, line2) {
 }
 
 // Example usage:
-const line1 = [{x:0,y:0} ,{x:4,y:4}];
-const line2 = [{x:8,y:4} ,{x:4,y:0}];
+// const line1 = [{x:0,y:0} ,{x:4,y:4}];
+// const line2 = [{x:8,y:4} ,{x:4,y:0}];
 
-const result = areLinesIntersecting(line1, line2);
-console.log(result); // Output: true
+// const result = areLinesIntersecting(line1, line2);
+// console.log(result); // Output: true

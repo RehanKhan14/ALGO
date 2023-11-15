@@ -1,5 +1,5 @@
 // Function to find the convex hull using a brute force approach
-export const BruteForce = points => {
+export const useBruteForce = points => {
     if (points.length < 3) {
       // Convex hull is not possible with less than 3 points
       return points;
@@ -60,6 +60,6 @@ export const BruteForce = points => {
   //   { x: 100, y: 200 },
   // ];
   
-  // const convexHull = convexHullBruteForce(data);
+  // const convexHull = useBruteForce(data);
   // console.log(convexHull);
   

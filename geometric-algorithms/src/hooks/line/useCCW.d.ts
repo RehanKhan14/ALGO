@@ -1,1 +1,1 @@
-export const AreLinesIntersecting:any;
+export const useAreLinesIntersecting:any;
