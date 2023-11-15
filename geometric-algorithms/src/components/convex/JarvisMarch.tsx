@@ -1,4 +1,5 @@
-import { useBruteForce } from "../../hooks/convexhull/bruteforce";
+
+import { useJarvisMarch } from "../../hooks/convexhull/jarvismarch";
 import { useSortByPolarAngle } from "../../hooks/convexhull/polarangle";
 import { HullGraph } from "../Graph/HullGraph";
 
@@ -10,13 +11,13 @@ interface Points{
     y:number,
 }
 
-export const BruteForce = (props:Props) => {
-    const convexHull=useBruteForce(props.data);
+export const JarvisMarch = (props:Props) => {
+    const convexHull=useJarvisMarch(props.data);
     const sorted:Points[]=useSortByPolarAngle(convexHull);
     
     return (
     <>
-        {/* <p>The lines are {intersecting?" ":"not "}intersecting</p> */}
+        <h1>Jarvis March</h1>
         <HullGraph dataLine={sorted} dataScatter={props.data} />
     </>
     );

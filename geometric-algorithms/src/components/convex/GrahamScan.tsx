@@ -16,7 +16,7 @@ export const GrahamScan = (props:Props) => {
     
     return (
     <>
-        <h1>Grahm Scan</h1>
+        <h1>Graham Scan</h1>
         <HullGraph dataLine={sorted} dataScatter={props.data} />
     </>
     );

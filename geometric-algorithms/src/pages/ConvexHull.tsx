@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import { InputHull } from "../components/Input/InputHull";
 import { BruteForce } from "../components/convex/BruteForce";
 import { GrahamScan } from "../components/convex/GrahamScan";
+import { JarvisMarch } from "../components/convex/JarvisMarch";
 interface Points{
     x:number,
     y:number
@@ -36,7 +37,7 @@ export const ConvexHull = () =>{
             case 'Bru':
                 return <BruteForce data={data}/>
             case 'Jar':
-                return <p></p> 
+                return <JarvisMarch data={data}/>
             case 'Gra':
                 return <GrahamScan data={data}/>  
             case 'Qck':

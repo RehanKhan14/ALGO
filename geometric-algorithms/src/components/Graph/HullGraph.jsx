@@ -12,8 +12,8 @@ export const HullGraph = (props) =>{
           <YAxis type="number" dataKey="y" name="y" domain={[domain.minY-10,domain.maxY+10]}/>
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
           <Legend />
-          <Scatter name="Line" data={props.dataLine} fill="blue" line shape="diamond" />
           <Scatter name="Points" data={props.dataScatter} fill="red" shape="dot" />
+          <Scatter name="Line" data={props.dataLine} fill="blue" line shape="diamond" />
         </ScatterChart>
       </ResponsiveContainer>
         
