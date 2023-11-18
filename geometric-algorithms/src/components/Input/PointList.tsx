@@ -1,4 +1,4 @@
-import { Avatar, IconButton, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
+import { Avatar, Checkbox, IconButton, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useEffect,useState } from "react";
@@ -7,6 +7,9 @@ interface Props{
     x:number[],
     y:number[],
     nodeDelete:any,
+    addCustomHull:any,
+    removeCustomHull:any,
+    checkedBoxes:number[],
 }
 
 export interface Data{
@@ -28,11 +31,23 @@ export const PointList = (props:Props) =>{
         <>
             <List>
                 {data.map((value:Data)=>{
+                    const check=props.checkedBoxes.includes(value.id);
                     return (
                         <ListItem secondaryAction={
+                            <>
                             <IconButton edge="start" aria-label="delete" color="error" onClick={()=>{props.nodeDelete(value.id);convertData()}}>
                             <DeleteIcon />
-                            </IconButton>}
+                            </IconButton>
+                            <Checkbox onChange={(event)=>{
+                                if(event.target.checked){
+                                    props.addCustomHull(value.id);
+                                }
+                                else{
+                                    props.removeCustomHull(value.id);
+                                }
+                            }} checked={check}/>
+                            </>
+                            }
                         >
                         <ListItemText primary={`${value.id}- (${value.x} ,${value.y})`}/>
                         </ListItem>

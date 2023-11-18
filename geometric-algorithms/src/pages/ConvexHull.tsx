@@ -3,6 +3,9 @@ import { InputHull } from "../components/Input/InputHull";
 import { BruteForce } from "../components/convex/BruteForce";
 import { GrahamScan } from "../components/convex/GrahamScan";
 import { JarvisMarch } from "../components/convex/JarvisMarch";
+import { QuickElimination } from "../components/convex/QuickElimination";
+import { Chan } from "../components/convex/Chan";
+import { VerifyConvexHull } from "../components/convex/VerifyConvex";
 interface Points{
     x:number,
     y:number
@@ -10,8 +13,9 @@ interface Points{
 
 export const ConvexHull = () =>{
     const [data, setData]=useState<Points[]>([]);
+    const [userData, setUserData]=useState<Points[]>([]);
     const [algo, setAlgo]=useState("");
-    const [input, setInput]=useState(true);
+    const [input, setInput]=useState(0);
     const temp=[
                 { x: 0, y: 0 },
                 { x: 3, y: 0 },
@@ -19,19 +23,28 @@ export const ConvexHull = () =>{
                 { x: 2, y: 2 },
                 { x: 0, y: 3 }
                 ];
-    const switchIn=() =>{
-        setInput(false);
+    const setInCompute=() =>{
+        setInput(1);
     }
+    const setInVerify=()=>{
+        setInput(2);
+    } 
     const runAlgo = (coords:Points[],algorithm:string)=>{
         setData(coords);
         setAlgo(algorithm);
-        switchIn();
+        setInCompute();
         // useAreLinesIntersecting(lineA,lineB);
-        console.log(coords);
+        // console.log(coords);
     }
     useEffect(()=>{
         document.title="Geo Algorithmics | Convex Hull";
     },[])
+
+    const verifyHull=(userHull:Points[],data:Points[])=>{
+        setData(data);
+        setUserData(userHull);
+        setInVerify();
+    }
     const getComponent=()=>{
         switch(algo){
             case 'Bru':
@@ -41,15 +54,16 @@ export const ConvexHull = () =>{
             case 'Gra':
                 return <GrahamScan data={data}/>  
             case 'Qck':
-                return 
-            case 'Res':
-                return <p>Research Paper</p>
+                return <QuickElimination data={data}/>
+            case 'Cha':
+                return <Chan data={data}/>
         }
     }
     return (
         <>
-            {input && <InputHull runAlgo={runAlgo}/>}
-            {!input && getComponent()}
+            {input===0 && <InputHull runAlgo={runAlgo} verifyHull={verifyHull}/>}
+            {input===1 && getComponent()}
+            {input===2 && <VerifyConvexHull data={data} custom={userData}/>}
         </>
     );
 }

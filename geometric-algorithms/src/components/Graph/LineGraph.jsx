@@ -12,8 +12,9 @@ export const LineGraph = (props) =>{
           <YAxis type="number" dataKey="y" name="y" domain={[domain.minY-10,domain.maxY+10]}/>
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
           <Legend />
-          <Scatter name="Line A" data={props.data1} fill="blue" line shape="diamond" />
-          <Scatter name="Line B" data={props.data2} fill="magenta" line shape="dot" />
+          {props.dataPoints!=null && <Scatter name="Points" data={props.dataPoints} fill="red" />}
+          <Scatter name={props.nameA==null?'Line A':props.nameA} data={props.data1} fill="blue" line shape="diamond" />
+          <Scatter name={props.nameB==null?'Line B':props.nameB} data={props.data2} fill="magenta" line shape="dot" />
         </ScatterChart>
       </ResponsiveContainer> 
     );
