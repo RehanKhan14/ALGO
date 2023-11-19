@@ -26,11 +26,13 @@ export const Features1 = (props:Props) =>{
                                 <div className={style.icon}>
                                     <ArticleIcon/>
                                 </div>
-                                <div className={style.test}>
+                                <div className={style.heading}>
                                     <h5>{item.heading}</h5>
+                                    <div className={style.para}>
                                     <p>{item.para}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </div>                            
                         );
                     })}
                 </div>

@@ -3,6 +3,7 @@ import { InputLine } from "../components/Input/InputLine";
 import { CCW } from "../components/line/CCW";
 import { Cra } from "../components/line/Cra";
 import { Research } from "../components/line/Research";
+import style from "./css/Intersection.module.scss";
 // import { AreLinesIntersecting } from "../hooks/line/useCCW";
 
 interface Points{
@@ -45,11 +46,11 @@ export const Intersection = () =>{
     }
 
     return (
-        <>
+        <div className={style.container}>
             {/* Line Intersection */}
             {input && <InputLine runAlgo={runAlgo}/>}
             {!input && getComponent()}
             {/* {algo logic} */}
-        </>
+        </div>
     );
 }

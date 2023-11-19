@@ -26,7 +26,7 @@ export const Contact = () =>{
                     <p>
                         <b>Name: </b>Muhammad Rehan Khan<br/> 
                         <b>Email: </b>muhammadrehankhan000@gmail.com<br/> 
-                        <b>LinkedIn: </b>https://www.linkedin.com/in/rehan-khan-b540b51b7/<br/>
+                        <b>LinkedIn: </b><a href="https://www.linkedin.com/in/rehan-khan-b540b51b7/">Muhammad Rehan Khan</a><br/>
                         <b>University: </b>FAST NUCES, Karachi<br/>
                     </p>
                 </Grid>

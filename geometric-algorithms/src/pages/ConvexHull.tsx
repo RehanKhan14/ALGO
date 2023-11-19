@@ -6,6 +6,7 @@ import { JarvisMarch } from "../components/convex/JarvisMarch";
 import { QuickElimination } from "../components/convex/QuickElimination";
 import { Chan } from "../components/convex/Chan";
 import { VerifyConvexHull } from "../components/convex/VerifyConvex";
+import style from "./css/Intersection.module.scss";
 interface Points{
     x:number,
     y:number
@@ -53,10 +54,10 @@ export const ConvexHull = () =>{
         }
     }
     return (
-        <>
+        <div className={style.container}>
             {input===0 && <InputHull runAlgo={runAlgo} verifyHull={verifyHull}/>}
             {input===1 && getComponent()}
             {input===2 && <VerifyConvexHull data={data} custom={userData}/>}
-        </>
+        </div>
     );
 }
