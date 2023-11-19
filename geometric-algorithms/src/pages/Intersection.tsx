@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import { InputLine } from "../components/Input/InputLine";
 import { CCW } from "../components/line/CCW";
 import { Cra } from "../components/line/Cra";
+import { Research } from "../components/line/Research";
 // import { AreLinesIntersecting } from "../hooks/line/useCCW";
 
 interface Points{
@@ -39,7 +40,7 @@ export const Intersection = () =>{
             case 'Cra':
                 return <Cra lineA={lineA} lineB={lineB}/>
             case 'Res':
-                return <p>Research Paper</p>
+                return <Research lineA={lineA} lineB={lineB}/>
         }
     }
 

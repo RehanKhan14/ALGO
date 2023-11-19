@@ -15,14 +15,7 @@ export const ConvexHull = () =>{
     const [data, setData]=useState<Points[]>([]);
     const [userData, setUserData]=useState<Points[]>([]);
     const [algo, setAlgo]=useState("");
-    const [input, setInput]=useState(0);
-    const temp=[
-                { x: 0, y: 0 },
-                { x: 3, y: 0 },
-                { x: 1, y: 1 },
-                { x: 2, y: 2 },
-                { x: 0, y: 3 }
-                ];
+    const [input, setInput]=useState(0); 
     const setInCompute=() =>{
         setInput(1);
     }
