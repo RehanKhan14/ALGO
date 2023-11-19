@@ -128,7 +128,7 @@ export const InputLine = (props:Props)=>{
                             onChange={  event=>{setAlgo(event.target.value);}}>
                             <MenuItem value={'CCW'}>Counter Clock Wise</MenuItem>
                             <MenuItem value={'Cra'}>Crammers Rule</MenuItem>
-                            <MenuItem value={'Res'}>Reasearch Paper</MenuItem>
+                            <MenuItem value={'Swe'}>Sweep Line</MenuItem>
                         </Select>
                         <Button color="success" onClick={handleSubmit}>Run Intersection Algorithm</Button>
                         

@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 import { InputLine } from "../components/Input/InputLine";
 import { CCW } from "../components/line/CCW";
 import { Cra } from "../components/line/Cra";
-import { Research } from "../components/line/Research";
+import { SweepLine } from "../components/line/Sweep";
 import style from "./css/Intersection.module.scss";
 // import { AreLinesIntersecting } from "../hooks/line/useCCW";
 
@@ -24,15 +24,10 @@ export const Intersection = () =>{
         setLineB([coords[2],coords[3]]);
         setAlgo(algorithm);
         switchIn();
-        // useAreLinesIntersecting(lineA,lineB);
-        // console.log(useAreLinesIntersecting(lineA,lineB));
     }
     useEffect(()=>{
         document.title="Geo Algorithmics | Intersection";
     },[]);
-    // useEffect(()=>{
-    //     AreLinesIntersecting(lineA,lineB);
-    // },[setInput]);
 
     const getComponent=()=>{
         switch(algo){
@@ -40,17 +35,15 @@ export const Intersection = () =>{
                 return <CCW lineA={lineA} lineB={lineB}/>
             case 'Cra':
                 return <Cra lineA={lineA} lineB={lineB}/>
-            case 'Res':
-                return <Research lineA={lineA} lineB={lineB}/>
+            case 'Swe':
+                return <SweepLine lineA={lineA} lineB={lineB}/>
         }
     }
 
     return (
         <div className={style.container}>
-            {/* Line Intersection */}
             {input && <InputLine runAlgo={runAlgo}/>}
             {!input && getComponent()}
-            {/* {algo logic} */}
         </div>
     );
 }
