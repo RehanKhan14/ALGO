@@ -149,7 +149,7 @@ export const InputLine = (props:Props)=>{
                         <Select id="selectAlgo" value={algo} label="Algorithm" placeholder="Chose Algorithm"
                             onChange={  event=>{setAlgo(event.target.value);}}>
                             <MenuItem value={'CCW'}>Counter Clock Wise</MenuItem>
-                            <MenuItem value={'Cra'}>Crammers Rule</MenuItem>
+                            <MenuItem value={'Cra'}>Algebraic Algorithm</MenuItem>
                             <MenuItem value={'Swe'}>Sweep Line</MenuItem>
                         </Select>
                         <Button color="success" onClick={handleSubmit}>Run Intersection Algorithm</Button>

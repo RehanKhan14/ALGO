@@ -173,7 +173,7 @@ export const InputHull = (props:Props)=>{
                             <MenuItem value={'Jar'}>Jarvis March</MenuItem>
                             <MenuItem value={'Gra'}>Graham Scan</MenuItem>
                             <MenuItem value={'Qck'}>Quick Elimination</MenuItem>
-                            <MenuItem value={'Cha'}>Chan</MenuItem>
+                            <MenuItem value={'Cha'}>Chan's Algorithm</MenuItem>
                         </Select>
                         <Button className={style.runbutton} color="success" onClick={handleSubmit}>Run Algorithm</Button>
                         </div>
@@ -181,7 +181,7 @@ export const InputHull = (props:Props)=>{
                         <PointList x={pointsX} y={pointsY} nodeDelete={handleDelete} checkedBoxes={customHull} addCustomHull={addToCustom} removeCustomHull={removeFromCustom}/>
                         
                         
-                        <Button color="success" onClick={runCustomHull}>Verify Cutom Hull</Button>
+                        <Button color="success" onClick={runCustomHull}>Verify Custom Hull</Button>
                         
                     </div>
                 </Grid>
