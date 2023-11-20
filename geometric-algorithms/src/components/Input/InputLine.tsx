@@ -16,6 +16,8 @@ export const InputLine = (props:Props)=>{
     const [points, setPoints] = useState([{x:0,y:0}])
     const [pointsX, setPointsX] = useState([0,0,0,0])
     const [pointsY, setPointsY] = useState([0,0,0,0])
+    const [trackX, setTrackX] = useState([0,0,0,0])
+    const [trackY, setTrackY] = useState([0,0,0,0])
     const [algo, setAlgo] = useState('CCW')
 
     const editPointList=(id:string, value:string)=>{
@@ -29,12 +31,20 @@ export const InputLine = (props:Props)=>{
         
         const index:number=Number(id[0]);
         if(id[1]==='X'){
+            setTrackX(prev=>{
+                const temp=prev
+                temp[index]=1
+                return temp;})
             setPointsX(prev=>{
                 const temp=prev
                 temp[index]=coordinate
                 return temp;})
         }
         else{
+            setTrackY(prev=>{
+                const temp=prev
+                temp[index]=1
+                return temp;})
             setPointsY(prev=>{
                 const temp=prev
                 temp[index]=coordinate
@@ -53,7 +63,17 @@ export const InputLine = (props:Props)=>{
         setPoints(temp);
     }
     const handleSubmit =() =>{
-        
+        for(let i=0;i<4;i++){
+            
+            if(trackX[i]===0){
+                window.alert(`Point ${(i%2)+1} of line ${(i%2)+1} not foun`);
+                return;
+            }
+            if(trackY[i]===0){
+                window.alert(`Point ${(i%2)+1} of line ${(i%2)+1} not found`);
+                return;
+            }
+        }
         props.runAlgo(points,algo);
     }
     

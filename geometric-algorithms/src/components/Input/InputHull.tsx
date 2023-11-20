@@ -115,12 +115,16 @@ export const InputHull = (props:Props)=>{
     // const convertPointFormat=(arrX:number[], arrY:number[])=>{
         
         const handleSubmit=()=>{
+            if(data.length<3){
+                window.alert("Convex Hull Requires 3 Or More Points");
+                return;
+            }
             props.runAlgo(data,algo);
         }
         const runCustomHull=()=>{
             const userPoints:Data[]=[];
             if(customHull.length<3){
-                window.prompt("Not Enough Points");
+                window.alert("Convex Hull Requires 3 Or More Points");
                 return;
             }
             for(let i=0;i<customHull.length;i++){
