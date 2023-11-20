@@ -64,13 +64,13 @@ export const InputLine = (props:Props)=>{
     }
     const handleSubmit =() =>{
         for(let i=0;i<4;i++){
-            
+            const line=(i<2?1:2);
             if(trackX[i]===0){
-                window.alert(`Point ${(i%2)+1} of line ${(i%2)+1} not foun`);
+                window.alert(`Point ${(i%2)+1} of line ${line} not found`);
                 return;
             }
             if(trackY[i]===0){
-                window.alert(`Point ${(i%2)+1} of line ${(i%2)+1} not found`);
+                window.alert(`Point ${(i%2)+1} of line ${line} not found`);
                 return;
             }
         }
