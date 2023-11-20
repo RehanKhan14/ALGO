@@ -8,6 +8,7 @@ import Select from '@mui/material/Select';
 import { ScatterGraph } from "../Graph/ScatterGraph";
 import { PointList } from "./PointList";
 import {Data} from './PointList';
+import style from "./css/InputHull.module.sass";
 
 interface Props{
     runAlgo: any,
@@ -134,7 +135,7 @@ export const InputHull = (props:Props)=>{
         
         return (
             <div>
-            <h1>Convex Hull</h1>
+            <h1 className={style.head1}>Convex Hull</h1>
             <Grid container spacing={1}>
                 <Grid xs={4}>
                     <div>
@@ -156,13 +157,13 @@ export const InputHull = (props:Props)=>{
                         />
                         <br></br>
                        <Button color="primary" onClick={inputPoint}>Add Point</Button> 
-                        
 
 
                         <InputLabel >Algorithms</InputLabel>
+                        <div className={style.button}>
                         <Select id="selectAlgo" value={algo} label="Algorithm" placeholder="Chose Algorithm"
                             onChange={  event=>{setAlgo(event.target.value);
-                                                // setDisableButton(false);
+                                // setDisableButton(false);
                                                 }}>
                             <MenuItem value={'Bru'}>Brute Force</MenuItem>
                             <MenuItem value={'Jar'}>Jarvis March</MenuItem>
@@ -170,7 +171,8 @@ export const InputHull = (props:Props)=>{
                             <MenuItem value={'Qck'}>Quick Elimination</MenuItem>
                             <MenuItem value={'Cha'}>Chan</MenuItem>
                         </Select>
-                        <Button color="success" onClick={handleSubmit}>Run Algorithm</Button>
+                        <Button className={style.runbutton} color="success" onClick={handleSubmit}>Run Algorithm</Button>
+                        </div>
 
                         <PointList x={pointsX} y={pointsY} nodeDelete={handleDelete} checkedBoxes={customHull} addCustomHull={addToCustom} removeCustomHull={removeFromCustom}/>
                         
@@ -180,7 +182,7 @@ export const InputHull = (props:Props)=>{
                     </div>
                 </Grid>
                 <Grid xs={8}>
-                    <div>
+                    <div className={style.head2}>
                         <h2>Realtime Graph</h2>
                         {data.length<1?<p>Insert Points To Display Graph</p>:
                         <ScatterGraph data={data} aspect={3}/>

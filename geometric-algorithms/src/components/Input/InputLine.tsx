@@ -5,6 +5,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
+import style from "./css/InputLine.module.sass";
 import { ScatterGraph } from "../Graph/ScatterGraph";
 
 interface Props{
@@ -58,11 +59,12 @@ export const InputLine = (props:Props)=>{
     
     return (
         <div>
-            <h1>Line Intersection</h1>
+            <h1 className={style.heading}>Line Intersection</h1>
             <Grid container spacing={1}>
-                <Grid xs={6}>
+                <Grid xs={4}>
                     <div>
                         <h2>Enter Coordinates</h2>
+                        <br></br>
                         <h3>Line 1</h3> 
                         <TextField label="Point 1" variant="standard"
                         sx={{ m: 1, width: '20ch' }}
@@ -77,7 +79,7 @@ export const InputLine = (props:Props)=>{
                         onChange={(event)=>{
                             editPointList('0Y',event.target.value);
                         }}/>
-                        
+                        <br></br>
                         <TextField label="Point 2" variant="standard"
                         sx={{ m: 1, width: '20ch'}}
                         InputProps={{ startAdornment: <InputAdornment position="start">X: </InputAdornment>, }} 
@@ -91,9 +93,9 @@ export const InputLine = (props:Props)=>{
                         onChange={(event)=>{
                             editPointList('1Y',event.target.value);
                         }}/>
-
-
+                        <br></br>
                         <h3>Line 2</h3> 
+    
                         <TextField label="Point 1" variant="standard"
                         sx={{ m: 1, width: '20ch'}}
                         InputProps={{ startAdornment: <InputAdornment position="start">X: </InputAdornment>, }}
@@ -107,7 +109,7 @@ export const InputLine = (props:Props)=>{
                         onChange={(event)=>{
                             editPointList('2Y',event.target.value);
                         }}/>
-                        
+                        <br></br>
                         <TextField label="Point 2" variant="standard"
                         sx={{ m: 1, width: '20ch' }}
                         InputProps={{ startAdornment: <InputAdornment position="start">X: </InputAdornment>, }}
@@ -135,9 +137,9 @@ export const InputLine = (props:Props)=>{
                         
                     </div>
                 </Grid>
-                <Grid xs={6}>
+                <Grid xs={8}>
                     <div>
-                        <h2>Realtime Graph</h2>
+                        <h2 className={style.head2}>Realtime Graph</h2>
                         <ScatterGraph data={points} aspect={3}/>
                     </div>                 
                 </Grid>
